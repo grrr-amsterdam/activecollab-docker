@@ -25,7 +25,7 @@ RUN \
 	#apt-get -y install nodejs && \
 
 	# Install mod_rewrite on Apache
-	a2enmod rewrite && \
+	a2enmod rewrite
 
 	# Install ruby gems
 	#apt-get -y install ruby rubygems-integration && \
