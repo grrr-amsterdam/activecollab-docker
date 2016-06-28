@@ -1,4 +1,4 @@
 # ActiveCollab (v5) webserver Docker setup
 Maintainer: david@grrr.nl
 
-This is a webserver setup for Docker.
+This is a Docker webserver setup for ActiveCollab.
