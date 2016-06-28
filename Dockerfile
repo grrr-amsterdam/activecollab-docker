@@ -13,27 +13,28 @@ RUN \
 	apt-get -y update && \
 
 	# Basics
-	apt-get -y install apt-utils wget && \
+	#apt-get -y install apt-utils wget && \
+	apt-get -y install apt-utils && \
 
 	# Install MySql Improved
 	apt-get -y install php5-mysql && \
 	docker-php-ext-install pdo_mysql && \
 
 	# Install Node 4.x & NPM
-	wget -qO- https://deb.nodesource.com/setup_4.x | bash - && \
-	apt-get -y install nodejs && \
+	#wget -qO- https://deb.nodesource.com/setup_4.x | bash - && \
+	#apt-get -y install nodejs && \
 
 	# Install mod_rewrite on Apache
 	a2enmod rewrite && \
 
 	# Install ruby gems
-	apt-get -y install ruby rubygems-integration && \
-	gem install scss-lint && \
-	gem install semver && \
+	#apt-get -y install ruby rubygems-integration && \
+	#gem install scss-lint && \
+	#gem install semver && \
 
-	npm i -g gulp && \
-	npm i -g bower && \
-	npm i -g jshint
+	#npm i -g gulp && \
+	#npm i -g bower && \
+	#npm i -g jshint
 
 EXPOSE 80
 
