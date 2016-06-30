@@ -18,7 +18,7 @@ RUN \
 
 	# Install MySql Improved
 	apt-get -y install php5-mysql && \
-	docker-php-ext-install pdo_mysql && \
+	docker-php-ext-install mysqli && \
 
 	# Install Node 4.x & NPM
 	#wget -qO- https://deb.nodesource.com/setup_4.x | bash - && \
