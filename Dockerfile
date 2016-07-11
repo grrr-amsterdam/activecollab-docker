@@ -16,16 +16,24 @@ RUN \
 	#apt-get -y install apt-utils wget && \
 	apt-get -y install apt-utils && \
 
+    # Install mod_rewrite on Apache
+	a2enmod rewrite && \
+
 	# Install MySql Improved
 	apt-get -y install php5-mysql && \
 	docker-php-ext-install mysqli && \
+    
+    # Configure GD 
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
+    docker-php-ext-install -j$(nproc) gd && \
+
+    # Imap
+	docker-php-ext-install imap && \
+    
 
 	# Install Node 4.x & NPM
 	#wget -qO- https://deb.nodesource.com/setup_4.x | bash - && \
 	#apt-get -y install nodejs && \
-
-	# Install mod_rewrite on Apache
-	a2enmod rewrite
 
 	# Install ruby gems
 	#apt-get -y install ruby rubygems-integration && \
