@@ -24,12 +24,17 @@ RUN \
 	docker-php-ext-install mysqli && \
     
     # Configure GD 
-    apt-get install php5-gd && \
-    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ && \
-    docker-php-ext-install -j$(nproc) gd && \
+    apt-get -y install libpng12-dev libjpeg-dev && \
+    apt-get -y install php5-gd && \
+    docker-php-ext-configure gd --with-jpeg-dir=/usr/lib && \
+    #docker-php-ext-install -j$(nproc) gd && \
+    docker-php-ext-install gd && \
 
     # Imap
-	docker-php-ext-install imap && \
+    apt-get -y install libssl-dev libc-client2007e-dev libkrb5-dev && \
+	docker-php-ext-configure imap --with-imap-ssl --with-kerberos && \
+    apt-get -y install php5-imap && \
+	docker-php-ext-install imap
     
 
 	# Install Node 4.x & NPM
